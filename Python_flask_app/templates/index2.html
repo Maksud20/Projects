@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <!-- Place favicon.ico in the root directory -->
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div class="jumbotron">
+          <div class="container">
+            <h1>Automated Farming machine</h1>
+            <p>with IOT!</p>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <h3>Switch: {{ switch }} </span></h3>
+              
+            </div>
+            <div class="col-md-4">
+              <h3>MACHINE</h3>
+              <button class="btn btn-default" type='button' id='led_on'>MACHINE ON</button>
+               <button class="btn btn-default" type='button' id='led_off'>MACHINE OFF</button>
+        </p>
+          <head>
+		<title>Video Streaming Demonstration</title>
+	</head>
+	<body>
+    <h1>Video Streaming Demonstration</h1>
+    <img src="{{ url_for('video_feed') }}">
+    </div>
+	<div style="  width:300px; margin-bottom:120px; padding-bottom:100px; float:right;">
+	<center>
+	<h1><span style="color:#5C5C5C;">Manual</span><span style="color:#139442"> Control</span></h1>
+	<h2>Automated Farming machine</h2><br><br>
+	<a href="#" id="up" style="font-size:30px;text-decoration:none; ">  &#x1F881;&#x1F881;<br>Forward</a><br><br></center>
+	<a href="#" id="left" style="font-size:30px;text-decoration:none;margin-right:10px; "> &#x1F880;&#x1F880;Left</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#" id="right" style="font-size:30px; text-decoration:none; margin-left:35px;"> Right &#x1F882;&#x1F882;</a><br><br>
+	<center><a href="#" id="down" style="font-size:30px;text-decoration:none; "> Backward<br> &#x1F883;&#x1F883;</a></center>
+	</div>
+
+  </body>
+</html>
+
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script>
+          $(document).ready(function() {
+            $('#led_on').click(function() {
+              $.post('/led/1');
+            });
+            $('#led_off').click(function() {
+              $.post('/led/0');
+            });
+          });
+          $( document ).ready(function(){
+		$("#down").on("mousedown", function() {
+		$.get('/down_side');
+		}).on('mouseup', function() {
+		$.get('/stop');
+		});
+		$("#up").on("mousedown", function() {
+		$.get('/up_side');
+		}).on('mouseup', function() {
+		$.get('/stop');
+		});
+		$("#left").on("mousedown", function() {
+		$.get('/left_side');
+		}).on('mouseup', function() {
+		$.get('/stop');
+		});
+		$("#right").on("mousedown", function() {
+		$.get('/right_side');
+		}).on('mouseup', function() {
+		$.get('/stop');
+		});
+	});
+        </script>
+    </body>
+</html>
